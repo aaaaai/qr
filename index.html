@@ -19,11 +19,11 @@
 	}
 </style>
 <script type="text/javascript"	src="jquery.min.js"></script>
-<script type="text/javascript"	src="qrcode.min.js"></script>
+<script type="text/javascript"	src="qrcode.js"></script>
 </head>
 <body>
 	<div align="center">
-		<input id="keywords" type="text" value="" style="width:200px;margin-top:20px;" onkeydown="huiche(event)"/>
+		<input id="keywords" type="text" value="" style="width:200px;margin-top:20px;"/>
 	</div>
 	<div align="center" id="qrcode" style="margin-top:20px;" ></div>
 
@@ -34,18 +34,12 @@
 		});
 
 		function generateQRCode(){
+			qrcode.clear();
 			qrcode.makeCode($("#keywords").val());
-		}
-		function huiche(e) {
-			var ev= window.event||e;
-			if (ev.keyCode == 13) {
-				generateQRCode();
-			}
 		}
 		$("#keywords").blur(function(){
 			generateQRCode();
 		});
-		generateQRCode();
 	</script>
 </body>
 </html>
